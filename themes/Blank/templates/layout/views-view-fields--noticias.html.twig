@@ -1,0 +1,10 @@
+{% set imagem = fields.field_imagem_capa.content|striptags|trim %}
+{% set link   = fields.view_node.content|striptags %}
+
+<img class="card-img-top" src="{{ imagem==""?theme_path~'/images/logo.png':imagem }}" alt="Card image cap">
+<div class="card-body">
+  <h5 class="card-title">{{ fields.title.content }}</h5>
+  <h6 class="card-title">{{ fields.created.content }}</h6>
+  <p class="card-text">{{ fields.field_descricao_breve.content }}</p>
+  <a href="{{ link }}" class="btn btn-info btn-sm ">Ver notícia</a>
+</div>

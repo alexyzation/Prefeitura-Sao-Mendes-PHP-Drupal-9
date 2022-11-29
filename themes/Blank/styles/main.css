@@ -1,0 +1,240 @@
+a{
+  text-decoration: none;
+  color: initial;
+}
+a:hover{
+  text-decoration: none;
+  color: initial;
+}
+
+.theme-blue-color{
+  color: #28bdd6;
+}
+
+.theme-blue-link{
+  color: #28bdd6;
+}
+.theme-blue-link:hover{
+  color: #169cb3;
+}
+
+.data-drupal-messages a{
+  font-weight: bold;
+  color: #28bdd6;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  /*padding: 60px 15px 0;*/
+  padding-bottom: 60px;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.logo{
+  width: 100px;
+}
+
+.menu-principal{
+  margin-bottom: 20px;
+}
+
+.paginacao{
+  margin-top: 20px;
+}
+
+.main-banner {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  margin-bottom: 20px;
+}
+@media (max-width: 1000px) {
+  .main-banner {
+    height: 400px;
+  }
+}
+.main-banner .title-banner {
+  font-size: 60px;
+  line-height: 66px;
+  /*margin-bottom: 35px;*/
+  /*max-width: 50%;*/
+}
+@media (max-width: 1000px) {
+  .main-banner .title-banner {
+    font-size: 38px;
+    line-height: 46px;
+    margin-bottom: 25px;
+    max-width: 100%;
+  }
+}
+.main-banner .category-banner {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+.main-banner .buttons-banner {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  float: right;
+}
+@media (max-width: 1000px) {
+  .main-banner .buttons-banner {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+.main-banner .buttons-banner .button {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #28bdd6;
+  background: #fff;
+  text-decoration: none;
+  transition: 400ms;
+  font-weight: bold;
+}
+@media (max-width: 1000px) {
+  .main-banner .buttons-banner .button {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+.main-banner .buttons-banner .button.green {
+  background: #3e552b;
+  color: #d6e559;
+}
+.main-banner .buttons-banner .button:hover {
+  box-shadow: inset 0 0 0 2px #fff !important;
+  color: #fff !important;
+  background-color: transparent !important;
+}
+
+.info-position-banner{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 20px;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.slick-prev:before, .slick-next:before{
+  font-size: 40px;
+
+}
+
+.slick-prev{
+  display: block;
+  color: #ffffff;
+  z-index: 100;
+  left: 0;
+  width: 40px;
+}
+.slick-next{
+  display: block;
+  color: #ffffff;
+  z-index: 100;
+  right: 0;
+  width: 40px;
+}
+
+.noticia-destaque a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.noticia-destaque.mini{
+  margin-bottom: 20px;
+  min-height: 200px;
+}
+.noticia-destaque.mini.last{
+  margin-bottom: 0px;
+}
+.noticia-destaque.grande{
+  margin-bottom: 20px;
+  min-height: 400px;
+}
+
+.noticia-destaque.grande .card-info-box{
+  background: rgb(0,0,0,0.5);
+  color: white;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.noticia-destaque.mini .card-info-box{
+  background: rgb(0,0,0,0.5);
+  color: white;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.veja-mais-noticias{
+  color: #ffffff !important;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px){
+  .noticia-destaque.grande{
+    height: initial !important;
+    min-height: 200px;
+  }
+
+  .noticia-destaque.grande .card-info-box{
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    margin-bottom: 0;
+    left: 0;
+  }
+
+}
+
+.noticia-interna .noticia-rodape{
+  margin-bottom: 50px;
+}
+.noticia-interna .noticia-rodape .noticias-icones-compartilhar{
+  font-size: 30px;
+}

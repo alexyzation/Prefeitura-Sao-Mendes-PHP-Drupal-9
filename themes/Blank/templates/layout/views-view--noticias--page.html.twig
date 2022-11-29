@@ -1,0 +1,11 @@
+{% if rows %}
+<div class="col-md-12 row mb-3">
+  <h4>{{ view.title }}</h4>
+</div>
+<div class="noticias row">
+  {{ rows }}
+</div>
+{% endif %}
+  {% if pager %}
+    {{ pager }}
+  {% endif %}

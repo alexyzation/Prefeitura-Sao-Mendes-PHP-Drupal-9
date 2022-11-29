@@ -1,0 +1,36 @@
+{% set imagem = file_url(node.field_imagem_capa.entity.fileuri) %}
+
+<div class="noticia-interna">
+
+  <div class="noticia-cabecalho mb-3">
+    <h4 class="mb-0">{{ node.title.value }}</h4>
+    <small>Publicado: {{ node.created.value| date('d/m/Y H:i:s') }}</small>
+  </div>
+  <div class="noticia-conteudo">
+    {% if(imagem) %}
+      <img class="img-fluid mb-5" src="{{ imagem }}">
+    {% endif %}
+    {{ node.body.value|raw }}
+  </div>
+  <div class="noticia-rodape">
+    <hr>
+    <div class="text-right">
+      <h6>Compartilhar</h6>
+      <a target="_blank" href=https://www.facebook.com/sharer/sharer.php?u={{ current_url }}">
+        <i class="noticias-icones-compartilhar theme-blue-color fa-brands fa-facebook"></i>
+      </a>
+      <a href="https://twitter.com/intent/tweet?url={{ current_url }}&text=">
+        <i class="noticias-icones-compartilhar theme-blue-color fa-brands fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ current_url }}">
+        <i class="noticias-icones-compartilhar theme-blue-color fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+{#{{ kint(content.field_imagem_capa.0) }}#}
+
+
+
+

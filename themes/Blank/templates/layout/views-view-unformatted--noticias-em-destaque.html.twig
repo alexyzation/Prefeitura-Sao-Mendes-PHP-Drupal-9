@@ -1,0 +1,40 @@
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in rows %}
+  {%
+    set row_classes = [
+    default_row_class ? 'views-row',
+  ]
+  %}
+
+  {% if(loop.first) %}
+
+    <div class="col-md-12 col-lg-9">
+      <div class="col-md-12 h-100 p-0">
+        <div class="noticia-destaque grande card h-100">
+          {{- row.content -}}
+        </div>
+      </div>
+    </div>
+
+  {% endif %}
+
+{% endfor %}
+
+<div class="col-md-12 col-lg-3">
+{% for row in rows %}
+  {% if not loop.first %}
+
+    <div class="col-md-12 p-0">
+      <div class="noticia-destaque mini {{ loop.last?'last':''}} card h-100">
+        {{- row.content -}}
+      </div>
+    </div>
+
+  {% endif %}
+{% endfor %}
+</div>
+<div class="col-md-12 col-lg-12 mt-4 text-center">
+  <a href="{{ base_url }}/noticias" class="btn btn-info veja-mais-noticias">Veja mais notícias</a>
+</div>

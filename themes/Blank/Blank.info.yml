@@ -1,0 +1,17 @@
+name: Blank
+type: theme
+'base theme': false
+starterkit: false
+libraries:
+  - Blank/base
+version: 9.4.2
+project: drupal
+datestamp: 1657157377
+core_version_requirement: ^9
+generator: 'starterkit_theme:9.4.2'
+#libraries-override:
+#  system/base: false
+#libraries-extend:
+#  user/drupal.user:
+#    - starterkit_theme/user
+

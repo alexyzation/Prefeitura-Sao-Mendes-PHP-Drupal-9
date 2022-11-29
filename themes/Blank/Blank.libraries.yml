@@ -1,0 +1,65 @@
+#base:
+#  version: VERSION
+#  css:
+#    component:
+#      css/styles/style.css:
+#        weight: -10
+#      css/components/hidden.module.css:
+#        weight: -10
+##dialog:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/dialog.css:
+#        weight: -10
+#dropbutton:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/dropbutton.css:
+#        weight: -10
+#file:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/file.css:
+#        weight: -10
+#image-widget:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/image-widget.css: {  }
+#indented:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/indented.css: {  }
+#messages:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/messages.css:
+#        weight: -10
+#node:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/node.css:
+#        weight: -10
+#progress:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/progress.css:
+#        weight: -10
+#search-results:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/search-results.css: {  }
+#user:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/user.css:
+#        weight: -10

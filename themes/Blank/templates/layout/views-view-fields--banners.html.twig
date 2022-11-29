@@ -1,0 +1,18 @@
+{% set background_image = fields.field_imagem.content|striptags|trim %}
+{% set link = fields.field_link.content|striptags|trim %}
+
+{% set novaGuia = fields.field_nova_guia.content|striptags|trim %}
+
+
+<div class="main-banner" style='background: url("{{ background_image }}"); background-repeat: no-repeat; background-position: center;'>
+  <div class="center info-position-banner">
+    <p class="category-banner">{{ fields.title.content }}</p>
+    <p class="title-banner">{{ fields.field_descricao.content }}</p>
+    <div class="buttons-banner">
+
+      {% if(link!="")  %}
+          <a href="{{ link }}"  {{ novaGuia==1 ? 'target="_blank"' : '' }} class="button">Confira</a>
+      {% endif %}
+    </div>
+  </div>
+</div>

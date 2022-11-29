@@ -1,0 +1,15 @@
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in rows %}
+  {%
+    set row_classes = [
+    default_row_class ? 'views-row',
+  ]
+  %}
+  <div class="col-md-4">
+    <div class="noticia card h-100">
+      {{- row.content -}}
+    </div>
+  </div>
+{% endfor %}

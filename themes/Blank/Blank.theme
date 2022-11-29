@@ -1,0 +1,133 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming.
+ */
+
+/**
+ * Implements hook_preprocess_image_widget().
+ */
+function Blank_preprocess_image_widget(array &$variables) {
+  $data = &$variables['data'];
+
+  // This prevents image widget templates from rendering preview container HTML
+  // to users that do not have permission to access these previews.
+  // @todo revisit in https://drupal.org/node/953034
+  // @todo revisit in https://drupal.org/node/3114318
+  if (isset($data['preview']['#access']) && $data['preview']['#access'] === FALSE) {
+    unset($data['preview']);
+  }
+}
+
+function blank_preprocess(array &$variables){
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+  $variables['site_slogan'] = $config->get('slogan');
+
+  $route = \Drupal\Core\Url::fromRoute('<front>')->toString();
+  $variables['current_path']  = $route;
+  $variables['theme_path'] = base_path() . $variables['directory'];
+  $variables['base_url'] =  \Drupal::request()->getSchemeAndHttpHost().\Drupal::request()->getBaseUrl();
+  $variables['current_url']  =  \Drupal::request()->getSchemeAndHttpHost().\Drupal\Core\Url::fromRoute('<current>')->toString();
+
+
+  $tree = \Drupal::menuTree()->load('main', new \Drupal\Core\Menu\MenuTreeParameters());
+  $variables['main_menu'] = loadMenu($tree);
+
+}
+
+function blank_preprocess_html(array &$variables) {
+  // Load the site name out of configuration.
+
+
+}
+
+function blank_preprocess_page__front(array &$variables) {
+  $variables['banners'] = views_embed_view('banners', 'block_1');
+  $variables['noticias_destaque'] = views_embed_view('noticias_em_destaque', 'block_1');
+}
+
+//function blank_preprocess_search_result(array &$variables) {
+//    //dump('aaaaaaaa');
+//    //die();
+//}
+//
+//function blank_preprocess_views_view__teste__page(array &$variables) {
+//    //dump('aaaaaaaa');
+//    //die();
+//}
+//
+//function blank_preprocess_views_view__banners__block(array &$variables) {
+//    //dump('Alex');
+//    //die();
+//}
+
+//function blank_preprocess_views_view_fields__noticias(array &$variables) {
+//  dump($row);
+//  //die();
+//}
+
+function blank_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+
+  if ($hook == 'form' & !empty($variables['element']['#id'])) {
+    $suggestions[] = 'form__' . str_replace('-', '_', $variables['element']['#id']);
+  }
+}
+
+function blank_form_alter(&$form, &$form_state, $form_id) {
+  if($form_id == 'user_login' || $form_id=='user_login_form') {
+
+    //Add Classes
+    $form['name']['#attributes']['class'] = array('form-control');
+    $form['pass']['#attributes']['class'] = array('form-control');
+    $form['actions']['submit']['#attributes']['class'] = array('btn', 'btn-sm', 'btn-success','w-100');
+
+    //placeholder
+    $form['name']['#attributes']['placeholder'] = t('User');
+    $form['pass']['#attributes']['placeholder'] = t('Password');
+
+    //Labels
+    $form['name']['#title_display'] = '';
+    $form['pass']['#title_display'] = '';
+
+    //Labels
+//    $form['name']['#title'] = '';
+//    $form['pass']['#title'] = '';
+
+    $form['name']['#description'] = '';
+    $form['pass']['#description'] = '';
+
+
+//    dump($form_state);die();
+
+
+  }
+  return $form;
+}
+
+function loadMenu($tree) {
+  $menu = [];
+  foreach ($tree as $item) {
+    if($item->link->isEnabled()) {
+
+      $current_path = \Drupal::request()->getRequestUri();
+      $url = $item->link->getUrlObject()->toString();
+
+      $active = '';
+      if($current_path ==$url){
+        $active = 'active';
+      }
+
+      $menu[] = [
+        'weight'        => $item->link->getWeight(),
+        'title'         => $item->link->getTitle(),
+        'url'           => $item->link->getUrlObject()->toString(),
+        'has_children'  => $item->hasChildren,
+        'children'      => loadMenu($item->subtree),
+        'active'        => $active,
+      ];
+    }
+  }
+  return $menu;
+}
